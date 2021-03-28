@@ -3,11 +3,12 @@ import YouTube from 'react-youtube';
 import { useLocation } from 'react-router-dom';
 import { getVideoDetail } from '../apiService';
 
-
+// A new page for each video player
 function VideoPlayer({ videoCache, onVideoPause }) {
   const location = useLocation();
   const [video, setVideo] = useState(null);
 
+  // Call getVideoDetail API to get video details using video ID
   useEffect(() => {
     const fetchVideoDetail = async () => {
       const videoId = location.search.substring(3);
@@ -20,11 +21,12 @@ function VideoPlayer({ videoCache, onVideoPause }) {
 
   const handleVideoPause = ({ target }) => {
     const currentTime = target.getCurrentTime();
-    onVideoPause(video.id.videoId, currentTime);
+    onVideoPause(video.id, currentTime);
   };
 
+  // Check if this video is watched before, if so, resume to the seconds paused last time
   const checkVideoCache = ({ target }) => {
-    const cacheTime = videoCache[video?.id.videoId];
+    const cacheTime = videoCache[video.id];
     if (cacheTime) {
       target.seekTo(cacheTime);
     }

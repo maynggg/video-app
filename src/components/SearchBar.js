@@ -7,6 +7,7 @@ function SearchBar({ onVideoSearch }) {
   const [keyword, setKeyword] = useState('');
   const debouncedKeyword= useDebounce(keyword, 500);
 
+  // Call searchVideo API whenever the keyword typed in the search bar changes
   useEffect(
     () => {
       if (debouncedKeyword) {
@@ -16,7 +17,7 @@ function SearchBar({ onVideoSearch }) {
         onVideoSearch([]);
       }
     },
-    [debouncedKeyword], // Only call effect if debounced search term changes
+    [debouncedKeyword], // Only call effect if debounced keyword changes
   );
 
   return (

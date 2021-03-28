@@ -4,12 +4,23 @@ import { useHistory } from 'react-router-dom';
 
 const MAX_DESCRIPTION_LENGTH = 150;
 
+// Each video in the video list
 function VideoListItem({ video }) {
   const history = useHistory();
 
   const handleVideoClick = () => {
-    history.push(`/watch?v=${video.id.videoId}`);
+    let videoId;
+
+    // The video ID is returned differently in each API
+    if (typeof video.id === 'string') {
+      videoId = video.id;
+    } else {
+      videoId = video.id.videoId;
+    }
+    // Unique link for each video using video ID
+    history.push(`/watch?v=${videoId}`);
   }
+
   return (
     <Card onClick={handleVideoClick}>
       <Image src={video.snippet.thumbnails.default.url} wrapped ui={false} />

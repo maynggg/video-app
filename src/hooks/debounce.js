@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 
+// Custom hook to track keyword typed into the search bar
 export default function useDebounce(value, delay) {
   const [debouncedValue, setDebouncedValue] = useState(value);
 

@@ -14,6 +14,7 @@ function App() {
   const [videos, setVideos] = useState([]);
   const [videoCache, setVideoCache] = useState({});
 
+  // Fetch popular video on first app render
   useEffect(() => {
     const fetchVideos = async () => {
       const _videos = await getPopularVideos();
@@ -25,6 +26,7 @@ function App() {
 
   const handleVideoSearch = (newVideos) => setVideos(newVideos);
 
+  // Use a key:value pair to store video ID and current watching time
   const handleVideoPause = (videoId, currentTime) => {
     setVideoCache({
       ...videoCache,
