@@ -9,7 +9,6 @@ Features:
 Front-end development: React, React Router, axios, Semantic UI.
 
 ## Development guide:
-### Front-end:
 1. In a terminal, set the working directory to the folder `$ cd video_app`.
 2. Create a `.env` file and add the YouTube API Key. See `.env.example` for example.
 3. Install packages and dependencies by using the command `npm i`.
