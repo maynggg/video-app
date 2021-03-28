@@ -1,0 +1,9 @@
+.videos-container {
+  margin: 50px auto;
+  max-width: 80%;
+}
+
+.youtube-player {
+  text-align: center;
+  margin: 100px auto;
+}
